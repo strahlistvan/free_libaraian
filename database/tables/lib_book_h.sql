@@ -1,3 +1,4 @@
+
 DROP TABLE lib_book_h CASCADE CONSTRAINTS;
 
 CREATE TABLE lib_book_h (
@@ -17,3 +18,5 @@ CREATE TABLE lib_book_h (
   mod_date           DATE,
   version_no         NUMBER
 );
+
+COMMENT ON TABLE lib_book_h IS 'History table. It contains all previous version of the table. It can be useful at backup. For column comments, see the the top version table';
