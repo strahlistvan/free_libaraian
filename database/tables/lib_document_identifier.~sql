@@ -1,0 +1,11 @@
+DROP TABLE lib_document_identifier;
+CREATE TABLE lib_document_identifier (
+  id                     NUMBER,
+  doc_identifier_type_id NUMBER,
+  content                NUMBER,
+  
+  modified_by        VARCHAR2(100 CHAR),
+  dml_flag           VARCHAR2(1),
+  mod_date           DATE,
+  version_no         NUMBER
+);
