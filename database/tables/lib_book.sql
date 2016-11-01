@@ -10,7 +10,6 @@ CREATE TABLE lib_book (
   short_description  VARCHAR2(2000 CHAR),
   eto_number         VARCHAR2(30 CHAR), 
   cutter_number      VARCHAR2(5 CHAR), 
-  is_borrowable      NUMBER(1),
   
   modified_by        VARCHAR2(100 CHAR),
   dml_flag           VARCHAR2(1),
@@ -31,4 +30,3 @@ COMMENT ON COLUMN lib_book.pages IS 'Number of pages in the book.';
 COMMENT ON COLUMN lib_book.short_description IS 'Description/Content of the book.';
 COMMENT ON COLUMN lib_book.eto_number IS 'ETO number of the book in the catalog. Used in non-literature books. If NULL, then Cutter-number is required.';
 COMMENT ON COLUMN lib_book.cutter_number IS 'Cutter number of the book in the catalog. Used in literature books. If NULL, then ETO-number is required.';
-COMMENT ON COLUMN lib_book.is_borrowable IS 'Is this book instance borrowable? (0/1)';
