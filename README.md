@@ -1,3 +1,3 @@
-# Free libraryian.
+# Free library
 
 Library catalog software.
