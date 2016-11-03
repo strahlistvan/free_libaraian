@@ -7,11 +7,6 @@ CREATE TABLE lib_t_borrowing (
   end_date        DATE NOT NULL, 
   renewal_count   NUMBER DEFAULT 0,
   surcharge       NUMBER DEFAULT 0,
-  
-  modified_by     VARCHAR2(100 CHAR),
-  dml_flag        VARCHAR2(1),
-  mod_date        DATE,
-  version_no      NUMBER
  
 );
 

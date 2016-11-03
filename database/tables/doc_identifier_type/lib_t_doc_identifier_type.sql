@@ -5,10 +5,6 @@ CREATE TABLE lib_t_doc_identifier_type (
   name   VARCHAR2(100 CHAR) UNIQUE,
   format VARCHAR2(200 CHAR) UNIQUE,
   
-  modified_by        VARCHAR2(100 CHAR),
-  dml_flag           VARCHAR2(1),
-  mod_date           DATE,
-  version_no         NUMBER
 );
 
 ALTER TABLE lib_t_doc_identifier_type ADD CONSTRAINT lib_pk_identifier_type

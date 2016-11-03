@@ -4,11 +4,7 @@ CREATE TABLE lib_t_doc_identifier (
   id                     NUMBER,
   doc_identifier_type_id NUMBER,
   content                VARCHAR2(50 CHAR),
-  
-  modified_by        VARCHAR2(100 CHAR),
-  dml_flag           VARCHAR2(1),
-  mod_date           DATE,
-  version_no         NUMBER
+
 );
 
 ALTER TABLE lib_t_doc_identifier ADD CONSTRAINT lib_pk_doc_identifier

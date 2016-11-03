@@ -1,2 +1,2 @@
 DROP SEQUENCE lib_sq_borrowing;
-CREATE SEQUENCE lib_sq_borrowing START WITH 1 INCREMENT BY 1 NOMAXVALUE;
+CREATE SEQUENCE lib_sq_borrowing;

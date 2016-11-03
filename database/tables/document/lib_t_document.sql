@@ -3,14 +3,12 @@ DROP TABLE lib_t_document CASCADE CONSTRAINTS;
 CREATE TABLE lib_t_document (
   instance_id        NUMBER,
   doc_type_id        NUMBER,
-  is_borrowable      NUMBER(1),
-  
-  modified_by        VARCHAR2(100 CHAR),
-  dml_flag           VARCHAR2(1),
-  mod_date           DATE,
-  version_no         NUMBER
+  is_borrowable      NUMBER(1)
   
 );
+
+ALTER TABLE lib_t_document ADD CONSTRAINT lib_fk_document 
+PRIMARY KEY (instance_id);
 
 COMMENT ON TABLE lib_t_document IS 'It contains general document instances.';
 
