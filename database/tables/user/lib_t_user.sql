@@ -1,12 +1,12 @@
 DROP TABLE lib_t_user CASCADE CONSTRAINTS;
 
 CREATE TABLE lib_t_user (
-  user_id   NUMBER,
-  name      VARCHAR2(100 CHAR) NOT NULL,
-  email     VARCHAR2(200 CHAR),
-  birthdate DATE,
-  id_number VARCHAR2(30 CHAR) UNIQUE,
-  
+   user_id    NUMBER
+  ,name       VARCHAR2(100 CHAR) NOT NULL
+  ,email      VARCHAR2(200 CHAR)
+  ,birthdate  DATE
+  ,id_number  VARCHAR2(30 CHAR) UNIQUE
+  ,is_deleted CHAR(1)
 );
 
 ALTER TABLE lib_t_user ADD CONSTRAINT lib_pk_user 

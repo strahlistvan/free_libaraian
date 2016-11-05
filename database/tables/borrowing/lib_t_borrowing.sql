@@ -6,7 +6,7 @@ CREATE TABLE lib_t_borrowing (
   document_id     NUMBER NOT NULL,
   end_date        DATE NOT NULL, 
   renewal_count   NUMBER DEFAULT 0,
-  surcharge       NUMBER DEFAULT 0,
+  surcharge       NUMBER DEFAULT 0
  
 );
 

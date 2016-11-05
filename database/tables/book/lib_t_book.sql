@@ -9,7 +9,7 @@ CREATE TABLE lib_t_book (
   publish_year       NUMBER,
   short_description  VARCHAR2(2000 CHAR),
   eto_number         VARCHAR2(30 CHAR), 
-  cutter_number      VARCHAR2(5 CHAR), 
+  cutter_number      VARCHAR2(5 CHAR)
   
 );
 

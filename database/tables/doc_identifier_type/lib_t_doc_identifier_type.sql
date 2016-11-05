@@ -1,9 +1,9 @@
 DROP TABLE lib_t_doc_identifier_type CASCADE CONSTRAINTS;
 
 CREATE TABLE lib_t_doc_identifier_type (
-  id     NUMBER, 
-  name   VARCHAR2(100 CHAR) UNIQUE,
-  format VARCHAR2(200 CHAR) UNIQUE,
+  id     NUMBER
+  ,name   VARCHAR2(100 CHAR) UNIQUE
+  ,format VARCHAR2(200 CHAR) UNIQUE
   
 );
 

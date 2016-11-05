@@ -1,9 +1,9 @@
 DROP TABLE lib_t_document CASCADE CONSTRAINTS;
 
 CREATE TABLE lib_t_document (
-  instance_id        NUMBER,
-  doc_type_id        NUMBER,
-  is_borrowable      NUMBER(1)
+   instance_id        NUMBER
+  ,doc_type_id        NUMBER NOT NULL
+  ,is_borrowable      NUMBER(1)
   
 );
 

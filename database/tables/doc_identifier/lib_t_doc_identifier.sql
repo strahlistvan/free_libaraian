@@ -1,9 +1,9 @@
 DROP TABLE lib_t_doc_identifier CASCADE CONSTRAINTS;
 
 CREATE TABLE lib_t_doc_identifier (
-  id                     NUMBER,
-  doc_identifier_type_id NUMBER,
-  content                VARCHAR2(50 CHAR),
+   id                     NUMBER
+  ,doc_identifier_type_id NUMBER
+  ,content                VARCHAR2(50 CHAR)
 
 );
 
