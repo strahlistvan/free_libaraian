@@ -1,4 +1,4 @@
-CREATE OR REPLACE TRIGGER lib_tr_user_hist
+CREATE OR REPLACE TRIGGER lib_htr_user
 AFTER INSERT OR UPDATE OR DELETE ON lib_t_user
 FOR EACH ROW
 DECLARE  
@@ -69,5 +69,5 @@ ELSE
          )
   ;
 END IF;
-END lib_tr_user_hist;
+END lib_htr_user;
 /

@@ -1,0 +1,592 @@
+
+Creating table LIB_HT_BOOK
+==========================
+
+
+create table FREE_LIBRARIAN.LIB_HT_BOOK
+(
+  instance_id       NUMBER,
+  author            VARCHAR2(100 CHAR),
+  title             VARCHAR2(300 CHAR),
+  doc_identifier_id NUMBER,
+  pages             NUMBER,
+  publish_year      NUMBER,
+  short_description VARCHAR2(2000 CHAR),
+  eto_number_id     NUMBER,
+  cutter_number_id  NUMBER,
+  is_borrowable     NUMBER(1),
+  modified_by       VARCHAR2(100 CHAR),
+  dml_flag          VARCHAR2(1),
+  mod_date          DATE,
+  version_no        NUMBER
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Creating table LIB_HT_BORROWING
+===============================
+
+
+create table FREE_LIBRARIAN.LIB_HT_BORROWING
+(
+  id            NUMBER,
+  user_id       NUMBER,
+  document_id   NUMBER,
+  end_date      DATE,
+  renewal_count NUMBER,
+  surcharge     NUMBER default 0,
+  modified_by   VARCHAR2(100 CHAR),
+  dml_flag      VARCHAR2(1),
+  mod_date      DATE,
+  version_no    NUMBER
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Creating table LIB_HT_DOC_IDENTIFIER
+====================================
+
+
+create table FREE_LIBRARIAN.LIB_HT_DOC_IDENTIFIER
+(
+  id                     NUMBER,
+  doc_identifier_type_id NUMBER,
+  content                VARCHAR2(50 CHAR),
+  modified_by            VARCHAR2(100 CHAR),
+  dml_flag               VARCHAR2(1),
+  mod_date               DATE,
+  version_no             NUMBER
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Creating table LIB_HT_DOC_IDENTIFIER_TYPE
+=========================================
+
+
+create table FREE_LIBRARIAN.LIB_HT_DOC_IDENTIFIER_TYPE
+(
+  id          NUMBER,
+  name        VARCHAR2(100 CHAR),
+  format      VARCHAR2(200 CHAR),
+  modified_by VARCHAR2(100 CHAR),
+  dml_flag    VARCHAR2(1),
+  mod_date    DATE,
+  version_no  NUMBER
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Creating table LIB_HT_DOCUMENT
+==============================
+
+
+create table FREE_LIBRARIAN.LIB_HT_DOCUMENT
+(
+  instance_id   NUMBER,
+  doc_type_id   NUMBER,
+  is_borrowable NUMBER(1),
+  modified_by   VARCHAR2(100 CHAR),
+  dml_flag      VARCHAR2(1),
+  mod_date      DATE,
+  version_no    NUMBER
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Creating table LIB_HT_USER
+==========================
+
+
+create table FREE_LIBRARIAN.LIB_HT_USER
+(
+  user_id     NUMBER,
+  name        VARCHAR2(100 CHAR),
+  email       VARCHAR2(200 CHAR),
+  birthdate   DATE,
+  id_number   VARCHAR2(30 CHAR),
+  modified_by VARCHAR2(100 CHAR),
+  dml_flag    VARCHAR2(1),
+  mod_date    DATE,
+  version_no  NUMBER
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Creating table LIB_T_DOC_IDENTIFIER
+===================================
+
+
+create table FREE_LIBRARIAN.LIB_T_DOC_IDENTIFIER
+(
+  id                     NUMBER not null,
+  doc_identifier_type_id NUMBER,
+  content                VARCHAR2(50 CHAR)
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+alter table FREE_LIBRARIAN.LIB_T_DOC_IDENTIFIER
+  add constraint LIB_PK_DOC_IDENTIFIER primary key (ID)
+  using index
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-02260: table can have only one primary key
+
+Creating table LIB_T_DOCUMENT
+=============================
+
+
+create table FREE_LIBRARIAN.LIB_T_DOCUMENT
+(
+  instance_id   NUMBER not null,
+  doc_type_id   NUMBER not null,
+  is_borrowable NUMBER(1)
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Comment added
+
+Comment added
+
+alter table FREE_LIBRARIAN.LIB_T_DOCUMENT
+  add constraint LIB_FK_DOCUMENT primary key (INSTANCE_ID)
+  using index
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-02260: table can have only one primary key
+
+Creating table LIB_T_BOOK
+=========================
+
+
+create table FREE_LIBRARIAN.LIB_T_BOOK
+(
+  instance_id       NUMBER not null,
+  author            VARCHAR2(100 CHAR),
+  title             VARCHAR2(300 CHAR),
+  doc_identifier_id NUMBER,
+  pages             NUMBER,
+  publish_year      NUMBER,
+  short_description VARCHAR2(2000 CHAR),
+  eto_number        VARCHAR2(30 CHAR),
+  cutter_number     VARCHAR2(5 CHAR)
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+alter table FREE_LIBRARIAN.LIB_T_BOOK
+  add constraint LIB_PK_BOOK primary key (INSTANCE_ID)
+  using index
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-02260: table can have only one primary key
+
+alter table FREE_LIBRARIAN.LIB_T_BOOK
+  add constraint LIB_FK_BOOK_DOC_IDENTIFIER_B foreign key (DOC_IDENTIFIER_ID)
+  references FREE_LIBRARIAN.LIB_T_DOC_IDENTIFIER (ID)
+
+ORA-02275: such a referential constraint already exists in the table
+
+alter table FREE_LIBRARIAN.LIB_T_BOOK
+  add constraint LIB_FK_BOOK_DOCUMENT foreign key (INSTANCE_ID)
+  references FREE_LIBRARIAN.LIB_T_DOCUMENT (INSTANCE_ID)
+
+ORA-02275: such a referential constraint already exists in the table
+
+Creating table LIB_T_BORROWING
+==============================
+
+
+create table FREE_LIBRARIAN.LIB_T_BORROWING
+(
+  id            NUMBER not null,
+  user_id       NUMBER not null,
+  document_id   NUMBER not null,
+  end_date      DATE not null,
+  renewal_count NUMBER default 0,
+  surcharge     NUMBER default 0
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+alter table FREE_LIBRARIAN.LIB_T_BORROWING
+  add constraint LIB_PK_BORROWING primary key (ID)
+  using index
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-02260: table can have only one primary key
+
+Creating table LIB_T_USER
+=========================
+
+
+create table FREE_LIBRARIAN.LIB_T_USER
+(
+  user_id    NUMBER not null,
+  name       VARCHAR2(100 CHAR) not null,
+  email      VARCHAR2(200 CHAR),
+  birthdate  DATE,
+  id_number  VARCHAR2(30 CHAR),
+  is_deleted CHAR(1)
+)
+tablespace SYSTEM
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-00955: name is already used by an existing object
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+Comment added
+
+alter table FREE_LIBRARIAN.LIB_T_USER
+  add constraint LIB_PK_USER primary key (USER_ID)
+  using index
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-02260: table can have only one primary key
+
+alter table FREE_LIBRARIAN.LIB_T_USER
+  add unique (ID_NUMBER)
+  using index
+  tablespace SYSTEM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+
+ORA-02261: such unique or primary key already exists in the table
+
+Creating sequence LIB_SQ_BORROWING
+==================================
+
+
+create sequence FREE_LIBRARIAN.LIB_SQ_BORROWING
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 1
+increment by 1
+cache 20
+
+ORA-00955: name is already used by an existing object
+
+Creating sequence LIB_SQ_DOC_IDENTIFIER
+=======================================
+
+
+create sequence FREE_LIBRARIAN.LIB_SQ_DOC_IDENTIFIER
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 1
+increment by 1
+cache 20
+
+ORA-00955: name is already used by an existing object
+
+Creating sequence LIB_SQ_DOC_IDENTIFIER_TYPE
+============================================
+
+
+create sequence FREE_LIBRARIAN.LIB_SQ_DOC_IDENTIFIER_TYPE
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 1
+increment by 1
+cache 20
+
+ORA-00955: name is already used by an existing object
+
+Creating sequence LIB_SQ_DOCUMENT
+=================================
+
+
+create sequence FREE_LIBRARIAN.LIB_SQ_DOCUMENT
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 1
+increment by 1
+cache 20
+
+ORA-00955: name is already used by an existing object
+
+Creating sequence LIB_SQ_USER
+=============================
+
+
+create sequence FREE_LIBRARIAN.LIB_SQ_USER
+minvalue 1
+maxvalue 500000
+start with 100000
+increment by 1
+cache 20
+
+ORA-00955: name is already used by an existing object

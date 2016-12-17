@@ -1,4 +1,4 @@
-CREATE OR REPLACE TRIGGER lib_tr_doc_ident_type_hist
+CREATE OR REPLACE TRIGGER lib_htr_doc_ident_type
   AFTER INSERT OR UPDATE OR DELETE ON lib_t_doc_identifier_type
   FOR EACH ROW
 DECLARE
@@ -66,5 +66,5 @@ BEGIN
       ,v_version_no
 			);
   END IF;
-END lib_tr_doc_ident_type_hist;
+END lib_htr_doc_ident_type;
 /

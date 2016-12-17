@@ -1,5 +1,5 @@
-
-DROP TABLE lib_ht_book CASCADE CONSTRAINTS;
+DROP TABLE lib_ht_book CASCADE CONSTRAINTS
+/
 
 CREATE TABLE lib_ht_book (
   instance_id        NUMBER,
@@ -12,11 +12,13 @@ CREATE TABLE lib_ht_book (
   eto_number_id      NUMBER, 
   cutter_number_id   NUMBER, 
   is_borrowable      NUMBER(1),
-  
   modified_by        VARCHAR2(100 CHAR),
   dml_flag           VARCHAR2(1),
   mod_date           DATE,
   version_no         NUMBER
-);
+)
+/
 
-COMMENT ON TABLE lib_ht_book IS 'History table. It contains all previous version of the table. It can be useful at backup. For column comments, see the the top version table';
+COMMENT ON TABLE lib_ht_book 
+IS 'History table. It contains all previous version of the table. It can be useful at backup. For column comments, see the the top version table'
+/

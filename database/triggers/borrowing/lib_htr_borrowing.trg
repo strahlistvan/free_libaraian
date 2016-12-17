@@ -1,4 +1,4 @@
-CREATE OR REPLACE TRIGGER lib_htr_borrowing_hist
+CREATE OR REPLACE TRIGGER lib_htr_borrowing
 AFTER INSERT OR UPDATE OR DELETE ON lib_t_borrowing
 FOR EACH ROW
 DECLARE  
@@ -77,5 +77,5 @@ BEGIN
 			)
 	;
 	END IF;
-END lib_htr_user_hist;
+END lib_htr_borrowing;
 /
