@@ -23,6 +23,6 @@ BEGIN
           v_err_msg,
           p_debug_point,
           SYSDATE ) ;   
- COMMIT;    
+  COMMIT;    
 END lib_prc_log_errors;
 /

@@ -4,3 +4,4 @@ FOR EACH ROW
 BEGIN
   :NEW.id := lib_sq_doc_identifier.NEXTVAL; 
 END lib_pktr_doc_identifier;
+/

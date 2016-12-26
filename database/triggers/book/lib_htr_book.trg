@@ -36,7 +36,7 @@ THEN
                           version_no)
 	VALUES( :NEW.instance_id,
 	        :NEW.author,
-					:NEW.doc_identifier_id,
+					:NEW.title,
 					:NEW.doc_identifier_id,
 					:NEW.pages,
 					:NEW.publish_year,
@@ -72,7 +72,7 @@ ELSE
                           version_no)
   VALUES( :OLD.instance_id,
           :OLD.author,
-          :OLD.doc_identifier_id,
+          :OLD.title,
           :OLD.doc_identifier_id,
           :OLD.pages,
           :OLD.publish_year,
