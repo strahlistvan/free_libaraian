@@ -1,3 +1,3 @@
 # Free library
 
-Library catalog software.
+Library catalog software (Oralce PL/SQL database)
