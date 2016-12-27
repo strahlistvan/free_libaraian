@@ -5,7 +5,6 @@ CREATE TABLE lib_t_book (
   instance_id        NUMBER,
   author             VARCHAR2(100 CHAR),
   title              VARCHAR2(300 CHAR),
-  doc_identifier_id  NUMBER,
   pages              NUMBER,
   publish_year       NUMBER,
   short_description  VARCHAR2(2000 CHAR),
@@ -30,9 +29,6 @@ IS 'Author of the book.'
 /
 COMMENT ON COLUMN lib_t_book.title 
 IS 'Title of the book.'
-/
-COMMENT ON COLUMN lib_t_book.doc_identifier_id 
-IS 'Unique identifier of the document. Usually an ISBN number, but it can be anything else from ''lib_doc_identifier_type'' table'
 /
 COMMENT ON COLUMN lib_t_book.pages 
 IS 'Number of pages in the book.'

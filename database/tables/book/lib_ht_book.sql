@@ -5,7 +5,6 @@ CREATE TABLE lib_ht_book (
   instance_id        NUMBER,
   author             VARCHAR2(100 CHAR),
   title              VARCHAR2(300 CHAR),
-  doc_identifier_id  NUMBER,
   pages              NUMBER,
   publish_year       NUMBER,
   short_description  VARCHAR2(2000 CHAR),

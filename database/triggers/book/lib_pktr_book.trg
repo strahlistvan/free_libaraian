@@ -14,6 +14,5 @@ BEGIN
     v_id := :NEW.instance_id;
   END IF;
  
-  INSERT INTO lib_t_document VALUES(v_id, 1, 1);
 END lib_pktr_book;
 /
