@@ -28,22 +28,22 @@ INSERT INTO lib_t_document(instance_id,
                            is_borrowable)
 VALUES(1,1,1); 
                 
-INSERT INTO lib_t_book(instance_id,
+INSERT INTO lib_t_book(
                        author,
                        title,
-                       doc_identifier_id,
                        pages,
                        publish_year,
                        short_description,
                        eto_number,
                        cutter_number)        
-VALUES ( 1,
-         'Gárdonyi Géza',
-         'Egri Csillagok',
-         1,
+VALUES ( 'Gárdonyi Géza',
+         'A láthatatlan ember',
          300,
          2002,
-         'Vannak benne magyarok meg törökök is',
+         'Vannak benne hunok meg rómaiak is',
          NULL,
          'G 11' );
 COMMIT;
+
+select * FROM lib_t_book;
+select * FROM lib_t_document;
