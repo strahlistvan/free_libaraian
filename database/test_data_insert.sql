@@ -46,6 +46,31 @@ INSERT INTO lib_t_document(instance_id,
                            is_borrowable)
 VALUES(2, 1, 1, 1);
 
+
+INSERT INTO lib_t_book(instance_id,
+                       author,
+                       title,
+                       pages,
+                       publish_year,
+                       short_description,
+                       eto_number,
+                       cutter_number)        
+VALUES ( 3,
+         'Molnár Ferenc de nem Caramel',
+         'Pál utcai fiúk',
+         220,
+         1987,
+         'Vannak benne vörösingesek.',
+         NULL,
+         'G 11' );
+        
+INSERT INTO lib_t_document(instance_id,
+                           doc_type_id,
+                           doc_identifier_id,
+                           is_borrowable)
+VALUES(3, 1, 1, 1);
+
+
 COMMIT;
 
 select * FROM lib_t_book;
