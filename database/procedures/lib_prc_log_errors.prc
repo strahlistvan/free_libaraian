@@ -22,7 +22,7 @@ BEGIN
           p_sql_code,
           v_err_msg,
           p_debug_point,
-          SYSDATE ) ;   
-  COMMIT;    
+          SYSDATE ) ;
+  COMMIT;
 END lib_prc_log_errors;
 /

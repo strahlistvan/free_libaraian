@@ -8,6 +8,7 @@ CREATE TABLE lib_ht_book (
   pages              NUMBER,
   publish_year       NUMBER,
   short_description  VARCHAR2(2000 CHAR),
+  doc_identifier_id  NUMBER,
   eto_number_id      VARCHAR2(20 CHAR), 
   cutter_number_id   VARCHAR2(10 CHAR), 
   is_borrowable      NUMBER(1),

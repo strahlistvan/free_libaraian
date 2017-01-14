@@ -8,6 +8,7 @@ CREATE TABLE lib_t_book (
   pages              NUMBER,
   publish_year       NUMBER,
   short_description  VARCHAR2(2000 CHAR),
+  doc_identifier_id  NUMBER,
   eto_number         VARCHAR2(20 CHAR), 
   cutter_number      VARCHAR2(10 CHAR) 
 )
