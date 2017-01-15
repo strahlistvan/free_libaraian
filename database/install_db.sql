@@ -90,4 +90,8 @@ prompt == Create package @packages/lib_pck_user_action.spc
 @packages/lib_pck_user_action.spc
 prompt == Create package body @packages/lib_pck_user_action.bdy
 @packages/lib_pck_user_action.bdy
+prompt == Create package @packages/lib_pck_surcharge.spc
+@packages/lib_pck_surcharge.spc
+prompt == Create package body @packages/lib_pck_surcharge.bdy
+@packages/lib_pck_surcharge.bdy
 /
