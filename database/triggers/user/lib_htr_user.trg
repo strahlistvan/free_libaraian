@@ -25,6 +25,7 @@ THEN
                           ,email
                           ,birthdate
                           ,id_number
+													,surcharge
                           ,modified_by
                           ,dml_flag
                           ,mod_date
@@ -35,6 +36,7 @@ THEN
 					,:NEW.email
 					,:NEW.birthdate
 					,:NEW.id_number
+					,:NEW.surcharge
 					,(SELECT user FROM dual)
 					,v_dml_flag
 					,SYSDATE
@@ -52,6 +54,7 @@ ELSE
                           ,email
                           ,birthdate
                           ,id_number
+													,surcharge
                           ,modified_by
                           ,dml_flag
                           ,mod_date
@@ -62,6 +65,7 @@ ELSE
           ,:OLD.email
           ,:OLD.birthdate
           ,:OLD.id_number
+					,:OLD.surcharge
           ,(SELECT user FROM dual)
           ,v_version_no
           ,SYSDATE

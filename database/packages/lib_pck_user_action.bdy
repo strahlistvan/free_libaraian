@@ -67,12 +67,10 @@ AS
     INSERT INTO lib_t_borrowing(user_id,
                                 document_id,
                                 end_date,
-                                renewal_count,
-                                surcharge)
+                                renewal_count )
     VALUES( p_user_id,
             p_document_id,
             ADD_MONTHS(SYSDATE, 1),
-            0,
             0 );
     v_debug_point := 3;
     COMMIT;

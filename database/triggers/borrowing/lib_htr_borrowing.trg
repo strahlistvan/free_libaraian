@@ -26,7 +26,6 @@ BEGIN
 			,document_id
 			,end_date
 			,renewal_count
-			,surcharge
 			,modified_by
 			,dml_flag
 			,mod_date
@@ -37,7 +36,6 @@ BEGIN
 			,:NEW.document_id
 			,:NEW.end_date
 			,:NEW.renewal_count
-			,:NEW.surcharge
 			,(SELECT user FROM dual)
 			,v_dml_flag
 			,SYSDATE
@@ -57,7 +55,6 @@ BEGIN
 			,document_id
 			,end_date
 			,renewal_count
-			,surcharge
 			,modified_by
 			,dml_flag
 			,mod_date
@@ -69,7 +66,6 @@ BEGIN
 			,:OLD.document_id
 			,:OLD.end_date
 			,:OLD.renewal_count
-			,:OLD.surcharge
 			,(SELECT user FROM dual)
 			,v_dml_flag
 			,SYSDATE

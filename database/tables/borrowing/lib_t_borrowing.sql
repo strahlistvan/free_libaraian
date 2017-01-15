@@ -5,8 +5,7 @@ CREATE TABLE lib_t_borrowing (
   user_id         NUMBER NOT NULL,
   document_id     NUMBER NOT NULL,
   end_date        DATE NOT NULL, 
-  renewal_count   NUMBER DEFAULT 0,
-  surcharge       NUMBER DEFAULT 0
+  renewal_count   NUMBER DEFAULT 0
 )
 /
 ALTER TABLE lib_t_borrowing ADD CONSTRAINT lib_pk_borrowing 
@@ -23,6 +22,4 @@ COMMENT ON COLUMN lib_t_borrowing.document_id IS 'Borrowed document''s identifie
 COMMENT ON COLUMN lib_t_borrowing.end_date IS 'Borrowing end date.'
 /
 COMMENT ON COLUMN lib_t_borrowing.renewal_count IS 'How many times did the user renew this borrow record?'
-/
-COMMENT ON COLUMN lib_t_borrowing.surcharge IS 'If you don''t bring the document back in time, you must pay.'
 /

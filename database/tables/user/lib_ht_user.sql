@@ -2,15 +2,16 @@ DROP TABLE lib_ht_user CASCADE CONSTRAINTS
 /
 
 CREATE TABLE lib_ht_user (
-   user_id   NUMBER
-  ,name      VARCHAR2(100 CHAR)
-  ,email     VARCHAR2(200 CHAR)
-  ,birthdate DATE
-  ,id_number VARCHAR2(30 CHAR)
-  ,modified_by     VARCHAR2(100 CHAR)
-  ,dml_flag        VARCHAR2(1)
-  ,mod_date        DATE
-  ,version_no      NUMBER
+   user_id    NUMBER
+  ,name       VARCHAR2(100 CHAR)
+  ,email      VARCHAR2(200 CHAR)
+  ,birthdate  DATE
+  ,id_number  VARCHAR2(30 CHAR)
+	,surcharge   NUMBER DEFAULT 0
+  ,modified_by VARCHAR2(100 CHAR)
+  ,dml_flag    VARCHAR2(1)
+  ,mod_date    DATE
+  ,version_no  NUMBER
 )
 /
 
@@ -31,4 +32,7 @@ IS 'Library user''s date of birth.'
 /
 COMMENT ON COLUMN lib_ht_user.id_number 
 IS 'Personal identifier number.'
+/
+COMMENT ON COLUMN lib_ht_user.surcharge 
+IS 'If you don''t bring the document back in time, you must pay.'
 /

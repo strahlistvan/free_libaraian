@@ -7,7 +7,6 @@ CREATE TABLE lib_ht_borrowing (
   document_id     NUMBER,
   end_date        DATE, 
   renewal_count   NUMBER,
-  surcharge       NUMBER DEFAULT 0,
   modified_by     VARCHAR2(100 CHAR),
   dml_flag        VARCHAR2(1),
   mod_date        DATE,
@@ -33,7 +32,4 @@ IS 'Borrowing end date.'
 /
 COMMENT ON COLUMN lib_ht_borrowing.renewal_count 
 IS 'How many times did the user renew this borrow record?'
-/
-COMMENT ON COLUMN lib_ht_borrowing.surcharge 
-IS 'If you don''t bring the document back in time, you must pay.'
 /

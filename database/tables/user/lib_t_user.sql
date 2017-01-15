@@ -7,7 +7,7 @@ CREATE TABLE lib_t_user (
   ,email      VARCHAR2(200 CHAR)
   ,birthdate  DATE
   ,id_number  VARCHAR2(30 CHAR) UNIQUE
-  ,is_deleted CHAR(1)
+	,surcharge  NUMBER DEFAULT 0
 )
 /
 
@@ -33,4 +33,7 @@ IS 'Library user''s date of birth.'
 /
 COMMENT ON COLUMN lib_t_user.id_number 
 IS 'Personal identifier number.'
+/
+COMMENT ON COLUMN lib_t_user.surcharge 
+IS 'If you don''t bring the document back in time, you must pay.'
 /
