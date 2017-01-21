@@ -1,0 +1,13 @@
+BEGIN
+  dbms_output.put_line(' === CREATE JOB lib_surcharge_job');
+	dbms_scheduler.create_job (
+		job_name => 'lib_surcharge_job',
+		job_type => 'stored_procedure',
+		job_action => 'lib_pk_surcharge.raise_all_surcharge',
+		start_date => SYSDATE,
+		repeat_interval => 'freq=daily; byhour=0',
+		enabled => true,
+		auto_drop => false
+	);
+END;
+/

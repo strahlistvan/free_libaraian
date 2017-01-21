@@ -40,7 +40,7 @@ CREATE OR REPLACE PACKAGE BODY lib_pck_surcharge IS
 			dbms_output.put_line(co_procedure||' Error!');  
 	END raise_surcharge;
 	
-  PROCEDURE raise_all_surcharge ( p_amount NUMBER )
+  PROCEDURE raise_all_surcharge
 	IS
 	  co_procedure CONSTANT VARCHAR2(61) := 'raise_all_surcharge.'||co_package;
     v_debug               NUMBER;
@@ -49,7 +49,7 @@ CREATE OR REPLACE PACKAGE BODY lib_pck_surcharge IS
 		FOR cur IN (SELECT user_id FROM lib_t_user)
 		LOOP
 			raise_surcharge( p_user_id => cur.user_id
-			                ,p_amount  => p_amount );
+			                ,p_amount  => co_amount );
 		END LOOP;	
 
 	EXCEPTION

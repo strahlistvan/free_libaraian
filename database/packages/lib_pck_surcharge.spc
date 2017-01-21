@@ -7,7 +7,7 @@ CREATE OR REPLACE PACKAGE lib_pck_surcharge IS
 	PROCEDURE raise_surcharge ( p_user_id NUMBER
                              ,p_amount  NUMBER );
 	
-	PROCEDURE raise_all_surcharge ( p_amount NUMBER );
+	PROCEDURE raise_all_surcharge;
 
 END lib_pck_surcharge;
 /
