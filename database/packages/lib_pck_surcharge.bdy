@@ -27,7 +27,9 @@ CREATE OR REPLACE PACKAGE BODY lib_pck_surcharge IS
        SET u.surcharge = v_surcharge + v_overdue_count*p_amount
       WHERE u.user_id = p_user_id;
      COMMIT; 
-      
+     
+		 lib_prc_log_trace('Futik...');
+     		  
      v_debug := 40;
      dbms_output.put_line(p_user_id||': '||(v_surcharge+v_overdue_count*p_amount)||'$');
       
