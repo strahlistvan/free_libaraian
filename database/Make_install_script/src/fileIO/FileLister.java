@@ -1,9 +1,10 @@
+package fileIO;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class FileReader 
+public class FileLister 
 {
 	private String rootDir;
 	private ArrayList<String> okExt = new ArrayList<String>();
@@ -53,8 +54,6 @@ public class FileReader
             //if it is a real file, then add filename to list
         	 if (file.isFile())
         	 {
-
-        		 System.out.println(file.toString());
         		 filePathList.add(file.toString());
         	 }
             //if directory, then open and list it
@@ -82,7 +81,6 @@ public class FileReader
 	
 	public void toRelativePath() 
 	{
-		System.out.println("rútdíír:"+rootDir);
 		for (int i=0; i<filePathList.size(); ++i) 
 		{
 			String path = filePathList.get(i).replace(rootDir, "");
