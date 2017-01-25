@@ -23,4 +23,13 @@ public class TemplateWriter {
 		System.out.println(tempStr);
 	}
 
+	public void print(String value)
+	{
+		System.out.print(value);
+	}
+	
+	public void printLine(String value)
+	{
+		System.out.println(value);
+	}
 }
