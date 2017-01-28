@@ -8,10 +8,9 @@ public class FileLister
 {
 	private String rootDir;
 	private ArrayList<String> okExt = new ArrayList<String>();
+	private ArrayList<String> filePathList = new ArrayList<String>();
 	
-	private static ArrayList<String> filePathList = new ArrayList<String>();
-	
-	 /** FileFilter: filters only the acceptable music files **/
+	 /** FileFilter: filters only the acceptable files **/
 	 public FileFilter filter = new FileFilter() 
      {
         @Override
@@ -64,12 +63,11 @@ public class FileLister
       catch(Exception e)
       {
          // if any error occurs
-    	  System.out.println("Error when listing the directory");
+    	 System.err.println("Error when listing the directory");
          e.printStackTrace();
       }
 	}
 	
-
 	public ArrayList<String> getAllFiles(String dirName)
 	{
 		filePathList.clear();
@@ -94,10 +92,14 @@ public class FileLister
 	}
 
 	public void setOkExt(String ... extensions) {
-		okExt = new ArrayList<>(Arrays.asList(extensions));
+		okExt = new ArrayList<String>(Arrays.asList(extensions));
 	}
 
-	public static ArrayList<String> getFileList() {
+	public void setOkExt(ArrayList<String> okExt) {
+		this.okExt = okExt;
+	}
+
+	public ArrayList<String> getFileList() {
 		return filePathList;
 	}
 
@@ -113,5 +115,4 @@ public class FileLister
 		this.rootDir = rootDir;
 	    this.rootDir = this.rootDir.replace("\\", "/");
 	}
-
 }

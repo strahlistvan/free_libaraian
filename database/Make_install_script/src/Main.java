@@ -1,6 +1,3 @@
-import java.io.BufferedOutputStream;
-import java.io.FileWriter;
-import java.io.OutputStream;
 import java.util.ArrayList;
 
 import fileIO.FileLister;
@@ -9,11 +6,13 @@ import fileIO.TemplateWriter;
 public class Main 
 {
 	public static String rootDir;
-	
+    public static TemplateWriter tempWriter = new TemplateWriter();
+ 	
 	public static void main(String[] args) 
 	{
 		rootDir = "C:/Users/Istvan/Documents/PROGI/free_librarian/database";
- 
+		tempWriter.setOutputFile("create01.sql");
+		
 	    appendScript(rootDir, "sequences", "-- Create sequences", "sql");
 	    appendScript(rootDir, "foreign_keys", "-- Create foreign_keys", "sql");
 	    appendScript(rootDir, "triggers", "-- Create triggers", "trg");
@@ -27,17 +26,17 @@ public class Main
 			String promptText, String... okExts) 
 	{
 		rootDir = "C:/Users/Istvan/Documents/PROGI/free_librarian/database";
+		System.out.println(promptText);
 	    FileLister fileLister = new FileLister();
 	    fileLister.setRootDir(rootDir);    
 	    fileLister.setOkExt(okExts);
 		ArrayList<String> fileList = fileLister.getAllFiles(folder);
 		
-	    TemplateWriter tempWriter = new TemplateWriter();
 		tempWriter.printLine(promptText);	
 		tempWriter.setTemplateString("prompt === Create [$1] === \n@[$1]\n");
 
 		for (int i=0; i<fileList.size(); ++i) 
-		{		
+		{	
 			tempWriter.printTemplate(fileList.get(i));
 		}
 	}
