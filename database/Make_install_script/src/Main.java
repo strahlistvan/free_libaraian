@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
+import configXML.XMLHandler;
 import fileIO.FileLister;
 import fileIO.TemplateWriter;
 
@@ -13,9 +14,13 @@ public class Main
 	{
 		rootDir = "C:/Users/Istvan/Documents/PROGI/free_librarian/database";
 		tempWriter.setOutputFile("create01.sql");
+		
+		XMLHandler xmlHandler = new XMLHandler(rootDir+"/Make_install_script/config_schema.xsd");
+		xmlHandler.isValid(rootDir+"/Make_install_script/config.xml");
+		makeScript();
+		
 	
-	
-		boolean exited = false;
+	/*	boolean exited = false;
 		int key = 0;
 		
 		try 
@@ -56,6 +61,7 @@ public class Main
 			System.out.println("Error happened!");
 			ex.printStackTrace();
 		}
+	*/
 	}
 	
 	public static void clearScreen() throws IOException
