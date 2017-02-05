@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 import fileIO.FileLister;
@@ -12,14 +13,66 @@ public class Main
 	{
 		rootDir = "C:/Users/Istvan/Documents/PROGI/free_librarian/database";
 		tempWriter.setOutputFile("create01.sql");
+	
+	
+		boolean exited = false;
+		int key = 0;
 		
+		try 
+		{
+			while (!exited)
+			{
+				System.out.println("=================================================");
+				System.out.println("Oracle SQL database script installer creator tool");
+				System.out.println("=================================================");
+				System.out.println("Please choose a number for the menu: ");
+				System.out.println("1: Create script");
+				System.out.println("2: Set imput folder name");
+				System.out.println("3: Set output script name");
+				System.out.println("4. Set acceptable file extensions");
+				System.out.println("0: Exit application");
+				
+				System.out.print("\nPlease choose one: ");
+				key = System.in.read();
+				
+					switch (key) 
+					{
+					case 0:
+						exited = true;
+						System.out.println("Exiting from application");
+						break;
+		
+					case 1:
+						System.out.println("Creating script");
+						makeScript();
+					default:
+						break;
+					}
+				}
+			clearScreen();
+		}
+		catch (Exception ex)
+		{
+			System.out.println("Error happened!");
+			ex.printStackTrace();
+		}
+	}
+	
+	public static void clearScreen() throws IOException
+	{
+		String opSysName = System.getProperties().getProperty("os.name").toString();
+		System.out.println(opSysName);
+	//	Runtime.getRuntime().exec("cls");
+	}
+	
+	public static void makeScript()
+	{
 	    appendScript(rootDir, "sequences", "-- Create sequences", "sql");
 	    appendScript(rootDir, "foreign_keys", "-- Create foreign_keys", "sql");
 	    appendScript(rootDir, "triggers", "-- Create triggers", "trg");
 	    appendScript(rootDir, "procedures", "-- Create procedure", "prc");
 	    appendScript(rootDir, "packages", "-- Create package", "spc");
 	    appendScript(rootDir, "packages", "-- Create package body", "bdy");
-	    
 	}
 	
 	public static void appendScript(String rootDir, String folder, 

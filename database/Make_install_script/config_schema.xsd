@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://www.w3schools.com"
+		   xmlns="http://www.w3schools.com"
+		   elementFormDefault="qualified">
+  <xs:element name="root_dir" type="xs:string" /> 
+  <xs:element name="output_file" type="xs:string" />
+  <xs:element name="accepted_extensions">
+  	<xs:complexType>
+  	 <xs:element maxOccurs="unbounded" ref="extension" />
+  	</xs:complexType>
+  </xs:element>
+  <xs:element name="extension">
+    <xs:complexType>
+      <xs:attribute name="name" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="sql" />
+            <xs:enumeration value="spc" />
+            <xs:enumeration value="bdy" />
+            <xs:enumeration value="prc" />
+            <xs:enumeration value="trg" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
