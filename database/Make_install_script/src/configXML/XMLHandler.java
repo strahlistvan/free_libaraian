@@ -1,15 +1,21 @@
 package configXML;
 
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 
 import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.StringReader;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 
@@ -38,7 +44,7 @@ public class XMLHandler
 		this.xsdFilePath = xsdFilePath;
 	}
 	
-	private String readFile(String xmlFilePath) throws IOException
+	public String readFile(String xmlFilePath) throws IOException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(xmlFilePath));
 		String xmlSource = "";
@@ -53,19 +59,59 @@ public class XMLHandler
 		return xmlSource;
 	}
 	
-	public boolean isValid(String xmlFilePath)
+	public boolean isWellFormedXML(String xmlFilePath)
 	{
 		try 
 		{
-			String xmlSource = readFile(xmlFilePath);
-			System.out.println(xmlFilePath);
-			System.out.println(xmlSource);
-			StreamSource source = new StreamSource(new StringReader(xmlSource));
+		parser.parse(xmlFilePath, new DefaultHandler());
 		}
-		catch (IOException ex) 
+		catch (IOException ex)
 		{
+			System.out.println("Can not read the file "+xmlFilePath);
 			ex.printStackTrace();
 		}
+		
+		catch (SAXException ex) 
+		{
+			System.out.println("Failed to parse! "+xmlFilePath+" is not a well-formed XML.");
+			System.out.println(ex.toString());
+			//ex.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean isValid(String xmlFilePath)
+	{
+		if (!isWellFormedXML(xmlFilePath))
+			return false;
+		
+		try 
+		{
+			Source xmlSource = new StreamSource(new File(xmlFilePath));
+			Source xsdSource = new StreamSource(new File(xsdFilePath));
+			
+			SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+			Schema schema = schemaFactory.newSchema(xsdSource);
+			Validator validator = schema.newValidator();
+			
+			validator.validate(xmlSource);
+			System.out.println(xmlSource.getSystemId()+" is valid");
+		}
+		catch (IOException ex)
+		{
+			System.out.println("Can not read the file "+xmlFilePath+" or "+xsdFilePath);
+			ex.printStackTrace();
+		}
+		
+		catch (SAXException ex) 
+		{
+			System.out.println("Failed to parse! "+xmlFilePath+" is not valid XML against "+xsdFilePath);
+			System.out.println(ex.toString());
+			//ex.printStackTrace();
+			return false;
+		}
+		System.out.println(xmlFilePath+" is well-formed XML.");
 		return true;
 	}
 }

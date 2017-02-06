@@ -19,49 +19,6 @@ public class Main
 		xmlHandler.isValid(rootDir+"/Make_install_script/config.xml");
 		makeScript();
 		
-	
-	/*	boolean exited = false;
-		int key = 0;
-		
-		try 
-		{
-			while (!exited)
-			{
-				System.out.println("=================================================");
-				System.out.println("Oracle SQL database script installer creator tool");
-				System.out.println("=================================================");
-				System.out.println("Please choose a number for the menu: ");
-				System.out.println("1: Create script");
-				System.out.println("2: Set imput folder name");
-				System.out.println("3: Set output script name");
-				System.out.println("4. Set acceptable file extensions");
-				System.out.println("0: Exit application");
-				
-				System.out.print("\nPlease choose one: ");
-				key = System.in.read();
-				
-					switch (key) 
-					{
-					case 0:
-						exited = true;
-						System.out.println("Exiting from application");
-						break;
-		
-					case 1:
-						System.out.println("Creating script");
-						makeScript();
-					default:
-						break;
-					}
-				}
-			clearScreen();
-		}
-		catch (Exception ex)
-		{
-			System.out.println("Error happened!");
-			ex.printStackTrace();
-		}
-	*/
 	}
 	
 	public static void clearScreen() throws IOException
