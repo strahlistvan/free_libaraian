@@ -16,7 +16,7 @@ public class Main
 		tempWriter.setOutputFile("create01.sql");
 		
 		XMLHandler xmlHandler = new XMLHandler(rootDir+"/Make_install_script/config_schema.xsd");
-		xmlHandler.isValid(rootDir+"/Make_install_script/config.xml");
+		xmlHandler.extractData(rootDir+"/Make_install_script/config.xml");
 		makeScript();
 		
 	}

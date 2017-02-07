@@ -63,7 +63,7 @@ public class XMLHandler
 	{
 		try 
 		{
-		parser.parse(xmlFilePath, new DefaultHandler());
+			parser.parse(xmlFilePath, new DefaultHandler());
 		}
 		catch (IOException ex)
 		{
@@ -114,4 +114,30 @@ public class XMLHandler
 		System.out.println(xmlFilePath+" is well-formed XML.");
 		return true;
 	}
+	
+	public void extractData(String xmlFilePath)
+	{
+		if (!this.isValid(xmlFilePath))
+			return;
+		
+		try 
+		{
+			ConfigSAXLHandler handler = new ConfigSAXLHandler();
+			parser.parse(xmlFilePath, handler);
+			ConfigDataBean config = handler.getConfigData();
+			System.out.println(config);
+		}
+		catch (IOException ex)
+		{
+			System.out.println("Can not read the file "+xmlFilePath);
+			ex.printStackTrace();
+		}
+		
+		catch (SAXException ex) 
+		{
+			System.out.println("Failed to parse! "+xmlFilePath+" is not a well-formed XML.");
+			System.out.println(ex.toString());
+		}		
+	}
+	
 }
