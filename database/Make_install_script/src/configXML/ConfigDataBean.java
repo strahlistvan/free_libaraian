@@ -1,29 +1,40 @@
 package configXML;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ConfigDataBean 
 {
 	private String rootDir;
 	private String outputFile;
 	private ArrayList<String> acceptedExtensions = new ArrayList<String>();
+	
 	public String getRootDir() {
 		return rootDir;
 	}
+	
 	public void setRootDir(String rootDir) {
 		this.rootDir = rootDir;
 	}
+	
 	public String getOutputFile() {
 		return outputFile;
 	}
+	
 	public void setOutputFile(String outputFile) {
 		this.outputFile = outputFile;
 	}
+	
 	public ArrayList<String> getAcceptedExtensions() {
 		return acceptedExtensions;
 	}
+	
 	public void setAcceptedExtensions(ArrayList<String> acceptedExtensions) {
 		this.acceptedExtensions = acceptedExtensions;
+	}
+	
+	public void setAcceptedExtensions(String ...strings) {
+		this.acceptedExtensions = new ArrayList<String>(Arrays.asList(strings));
 	}
 	
 	public void addNewExtension(String extension) {

@@ -10,9 +10,7 @@ import javax.xml.validation.Validator;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 import javax.xml.XMLConstants;
@@ -43,22 +41,7 @@ public class XMLHandler
 		this();
 		this.xsdFilePath = xsdFilePath;
 	}
-	
-	public String readFile(String xmlFilePath) throws IOException
-	{
-		BufferedReader reader = new BufferedReader(new FileReader(xmlFilePath));
-		String xmlSource = "";
-		String line = reader.readLine();
-		while (line != null)
-		{
-			xmlSource += line;
-			line = reader.readLine();
-		}
-		reader.close();
-		
-		return xmlSource;
-	}
-	
+
 	public boolean isWellFormedXML(String xmlFilePath)
 	{
 		try 
@@ -67,14 +50,14 @@ public class XMLHandler
 		}
 		catch (IOException ex)
 		{
-			System.out.println("Can not read the file "+xmlFilePath);
+			System.err.println("Can not read the file "+xmlFilePath);
 			ex.printStackTrace();
 		}
 		
 		catch (SAXException ex) 
 		{
-			System.out.println("Failed to parse! "+xmlFilePath+" is not a well-formed XML.");
-			System.out.println(ex.toString());
+			System.err.println("Failed to parse! "+xmlFilePath+" is not a well-formed XML.");
+			System.err.println(ex.toString());
 			//ex.printStackTrace();
 			return false;
 		}
@@ -96,48 +79,48 @@ public class XMLHandler
 			Validator validator = schema.newValidator();
 			
 			validator.validate(xmlSource);
-			System.out.println(xmlSource.getSystemId()+" is valid");
+			//System.out.println(xmlSource.getSystemId()+" is valid");
 		}
 		catch (IOException ex)
 		{
-			System.out.println("Can not read the file "+xmlFilePath+" or "+xsdFilePath);
+			System.err.println("Can not read the file "+xmlFilePath+" or "+xsdFilePath);
 			ex.printStackTrace();
 		}
 		
 		catch (SAXException ex) 
 		{
-			System.out.println("Failed to parse! "+xmlFilePath+" is not valid XML against "+xsdFilePath);
-			System.out.println(ex.toString());
+			System.err.println("Failed to parse! "+xmlFilePath+" is not valid XML against "+xsdFilePath);
+			System.err.println(ex.toString());
 			//ex.printStackTrace();
 			return false;
 		}
-		System.out.println(xmlFilePath+" is well-formed XML.");
 		return true;
 	}
 	
-	public void extractData(String xmlFilePath)
+	public ConfigDataBean extractData(String xmlFilePath)
 	{
 		if (!this.isValid(xmlFilePath))
-			return;
+			return null;
 		
 		try 
 		{
 			ConfigSAXLHandler handler = new ConfigSAXLHandler();
 			parser.parse(xmlFilePath, handler);
 			ConfigDataBean config = handler.getConfigData();
-			System.out.println(config);
+			return config;
 		}
 		catch (IOException ex)
 		{
-			System.out.println("Can not read the file "+xmlFilePath);
+			System.err.println("Can not read the file "+xmlFilePath);
 			ex.printStackTrace();
 		}
 		
 		catch (SAXException ex) 
 		{
-			System.out.println("Failed to parse! "+xmlFilePath+" is not a well-formed XML.");
-			System.out.println(ex.toString());
-		}		
+			System.err.println("Failed to parse! "+xmlFilePath+" is not a well-formed XML.");
+			System.err.println(ex.toString());
+		}
+		
+		return null;
 	}
-	
 }

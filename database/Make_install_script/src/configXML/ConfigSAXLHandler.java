@@ -22,7 +22,6 @@ public class ConfigSAXLHandler extends DefaultHandler {
     	if (tagName != null) 
     	{
     		String content = new String(ch, start, length).trim();
-    		System.out.println(tagName+" content:"+content+" length: "+length);
     		
     		if ("root_dir".equalsIgnoreCase(tagName))
     		{
@@ -49,7 +48,7 @@ public class ConfigSAXLHandler extends DefaultHandler {
     @Override
     public void endDocument() throws SAXException 
     {
-    	System.out.println("End doqument");
+    	System.out.println("XML parsing successfully finished!");
     }
 
 	public ConfigDataBean getConfigData() 

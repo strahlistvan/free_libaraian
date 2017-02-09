@@ -2,11 +2,12 @@
 <root xmlns="http://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3schools.com config_schema.xsd ">
 	<root_dir>C:\Users\Istvan\Documents\PROGI\free_librarian\database</root_dir>
-	<output_file>create_script01.sql</output_file>
+	<output_file>script02.sql</output_file>
 	<accepted_extensions>
 		<ext>sql</ext>
 		<ext>prc</ext>
 		<ext>spc</ext>
 		<ext>bdy</ext>
+		<ext>trg</ext>
 	</accepted_extensions>
 </root>
