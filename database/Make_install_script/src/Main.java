@@ -26,6 +26,7 @@ public class Main
 	public static void makeScript(ConfigDataBean config)
 	{
 	    appendScript("sequences", "-- Create sequences", config);
+	    appendScript("tables", "-- Create tables", config);
 	    appendScript("foreign_keys", "-- Create foreign_keys", config);
 	    appendScript("triggers", "-- Create triggers", config);
 	    appendScript("procedures", "-- Create procedure", config);

@@ -9,7 +9,5 @@ CREATE OR REPLACE PACKAGE lib_pck_surcharge IS
 	
 	PROCEDURE raise_all_surcharge;
 
-	PROCEDURE raise_all_surcharge ( p_amount NUMBER DEFAULT co_amount );
-
 END lib_pck_surcharge;
 /
