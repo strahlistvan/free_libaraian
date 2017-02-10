@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+/**
+ * Lists all the file in the current folder
+ * @author Istvan
+ */
 public class FileLister 
 {
 	private String rootDir;
@@ -68,6 +72,11 @@ public class FileLister
       }
 	}
 	
+	/**
+	 * Get all the filenames in the current directory, including all subfolders
+	 * @param String dirName
+	 * @return ArrayList<String> list of filenames in the directory
+	 */
 	public ArrayList<String> getAllFiles(String dirName)
 	{
 		filePathList.clear();

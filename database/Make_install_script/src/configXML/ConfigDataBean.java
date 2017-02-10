@@ -3,6 +3,11 @@ package configXML;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Database connection configuration object
+ * @author Istvan
+ *
+ */
 public class ConfigDataBean 
 {
 	private String rootDir;

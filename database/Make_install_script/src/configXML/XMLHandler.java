@@ -35,13 +35,20 @@ public class XMLHandler
 			ex.printStackTrace();
 		}
 	}
-	
+	/**
+	 * Initialize new object instance
+	 * @param String XML Schema file with path
+	 */
 	public XMLHandler(String xsdFilePath)
 	{
 		this();
 		this.xsdFilePath = xsdFilePath;
 	}
 
+	/**
+	 * Decide if the XML file is well-formed
+	 * @param xmlFilePath
+	 */
 	public boolean isWellFormedXML(String xmlFilePath)
 	{
 		try 
@@ -64,6 +71,10 @@ public class XMLHandler
 		return true;
 	}
 	
+	/**
+	 * Decide if the given XML is valid against the instnce XSD Schema
+	 * @param xmlFilePath XML file
+	 */
 	public boolean isValid(String xmlFilePath)
 	{
 		if (!isWellFormedXML(xmlFilePath))
@@ -96,7 +107,12 @@ public class XMLHandler
 		}
 		return true;
 	}
-	
+	/**
+	 * Get the configuration data from the valid configuration XML. 
+	 * If the file not found or invalid, it returns null
+	 * @param String xmlFilePath - configuration XML file name (with path)
+	 * @return ConfigDataBean- configuration object
+	 */
 	public ConfigDataBean extractData(String xmlFilePath)
 	{
 		if (!this.isValid(xmlFilePath))

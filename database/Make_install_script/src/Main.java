@@ -11,8 +11,8 @@ public class Main
  	
 	public static void main(String[] args) 
 	{
-		String inputXML = (args.length > 0) ? args[0] : "config.xml";
-		String inputXSD = (args.length > 1) ? args[1] : "config_schema.xsd";
+		String inputXML = (args.length > 0) ? args[0] : System.getProperty("user.dir") + "/config.xml";
+		String inputXSD = (args.length > 1) ? args[1] : System.getProperty("user.dir") + "/config_schema.xsd";
 		
 		XMLHandler xmlHandler = new XMLHandler(inputXSD);
 		ConfigDataBean configData = xmlHandler.extractData(inputXML);

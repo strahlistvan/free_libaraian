@@ -4,6 +4,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * Get configuration data from the XML file
+ * @author Istvan
+ *
+ */
 public class ConfigSAXLHandler extends DefaultHandler {
 
 	private String tagName = null;
@@ -18,7 +23,8 @@ public class ConfigSAXLHandler extends DefaultHandler {
     }
     
     @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
+    public void characters(char[] ch, int start, int length) throws SAXException 
+    {
     	if (tagName != null) 
     	{
     		String content = new String(ch, start, length).trim();

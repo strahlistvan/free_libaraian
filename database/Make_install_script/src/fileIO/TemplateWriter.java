@@ -4,6 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+/**
+ * Substituting the parameters to the pattern
+ * Print a line to the current PrintStream 
+ * @author Istvan
+ */
 public class TemplateWriter {
 	
 	private String templateString;
